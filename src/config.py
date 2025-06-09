@@ -7,5 +7,5 @@ class Settings(BaseSettings):
     #configuracion para pydantic-settings
     model_config=SettingsConfigDict(env_file=".env")
     
-#se crea una unica instancia
+#se crea una unica instancia holi
 settings=Settings()
