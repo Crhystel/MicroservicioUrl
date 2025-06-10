@@ -17,10 +17,10 @@ class SqlAlchemyRepository(IUrlRepository):
     #la dependencia se inyecta en el constructor
     def __init__(self,db:Session):
         self.db=db
-    def save(self,shortCode:str,originalUrl:str)->None:
-        db_link = database.Link(shortCode=shortCode, originalUrl=originalUrl)
+    def save(self, shortCode: str, originalUrl: str) -> None:
+        db_link = database.Link(short_code=shortCode, original_url=originalUrl)
         self.db.add(db_link)
         self.db.commit()
         self.db.refresh(db_link)
-    def getByCode(self,shortCode:str)->Optional[database.Link]:
-        return self.db.query(database.Link).filter(database.Link.shortCode==shortCode).first()
+    def getByCode(self, shortCode: str) -> Optional[database.Link]:
+        return self.db.query(database.Link).filter(database.Link.short_code == shortCode).first()

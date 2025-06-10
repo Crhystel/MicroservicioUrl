@@ -22,5 +22,5 @@ class UrlShortenerService:
         return f"{self.baseUrl}/{shortCode}"
     def getOriginalUrl(self,shortCode:str)->Optional[str]:
         link=self.repository.getByCode(shortCode)
-        return link.originalUrl if link else None
+        return link.original_url if link else None
         
