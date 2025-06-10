@@ -18,9 +18,9 @@ class SqlAlchemyRepository(IUrlRepository):
     def __init__(self,db:Session):
         self.db=db
     def save(self, shortCode: str, originalUrl: str) -> None:
-        db_link = database.Link(short_code=shortCode, original_url=originalUrl)
+        db_link = database.Link(shortCode=shortCode, originalUrl=originalUrl)
         self.db.add(db_link)
         self.db.commit()
         self.db.refresh(db_link)
     def getByCode(self, shortCode: str) -> Optional[database.Link]:
-        return self.db.query(database.Link).filter(database.Link.short_code == shortCode).first()
+        return self.db.query(database.Link).filter(database.Link.shortCode == shortCode).first()

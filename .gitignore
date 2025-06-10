@@ -4,8 +4,7 @@ venv/
 env/
 .env
 
-# Archivos de configuración local y secretos
-# ¡NUNCA subas tus secretos o configuraciones de entorno al repositorio!
+# Archivos de configuración local 
 .env.*
 *.env
 

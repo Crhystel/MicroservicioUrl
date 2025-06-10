@@ -57,7 +57,7 @@ def redirectToUrl(shortCode:str,svc:service.UrlShortenerService=Depends(getServi
     raise HTTPException(status_code=404,detail="Short URL not found")
 
 @app.get("/health",summary="Health Check")
-def healthCheck():
+def health_check():
     return{"status":"ok"}
 
 @app.get("/api/links/{shortCode}", summary="Get original URL from a short code")
@@ -65,4 +65,4 @@ def get_link_details(shortCode: str, svc: service.UrlShortenerService = Depends(
     originalUrl = svc.getOriginalUrl(shortCode)
     if originalUrl:
         return {"shortCode": shortCode, "originalUrl": originalUrl}
-    raise HTTPException(status_Code=404, detail="Short URL not found")
+    raise HTTPException(status_code=404, detail="Short URL not found")
