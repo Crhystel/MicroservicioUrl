@@ -17,8 +17,8 @@ Base=declarative_base()
 class Link(Base):
     __tablename__="links"
     id=Column(Integer, primary_key=True,index=True)
-    short_code=Column(String, unique=True,index=True,nullable=False)
-    original_url=Column(String, nullable=False)
+    shortCode=Column(String, unique=True,index=True,nullable=False)
+    originalUrl=Column(String, nullable=False)
     
 def createDatabase():
     Base.metadata.create_all(bind=engine)
