@@ -2,7 +2,7 @@ from fastapi import FastAPI,Depends,HTTPException,Request
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from . import database,repository,service,config
-
+from fastapi.middleware.cors import CORSMiddleware
 #crea la tabla en la bd si no existe
 database.createDatabase()
 
@@ -11,6 +11,13 @@ app=FastAPI(
     description="A simple microservice to shorten URLs",
     version="1.0.0"
 )
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todos los orígenes
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos (GET, POST, etc.)
+    allow_headers=["*"],)  # Permite todas las cabeceras
 
 #Inteccion de dependencias
 #dependencia pata obtener la configuracion
