@@ -5,7 +5,7 @@ from .config import settings
 
 
 #configuracion del motor de base de datos
-engine=create_engine(settings.database_url,connect_args={"check_same_thread":False})
+engine=create_engine(settings.databaseUrl,connect_args={"check_same_thread":False})
 
 #creación de sesión local, cada instancia de este será una sesisón de base de datos
 SessionLocal=sessionmaker(autocommit=False,autoflush=False,bind=engine)

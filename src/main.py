@@ -20,10 +20,10 @@ def getSettings()->config.Settings:
 #dependencia para obtener una sesión de la base de datos
 def getDb():
     db=database.SessionLocal()
-        try:
-            yield db
-        finally:
-            db.close()
+    try:
+        yield db
+    finally:
+        db.close()
 
 #dependencia para obtener el repositorio
 def getRepository(db:Session=Depends(getDb))->repository.IUrlRepository:
